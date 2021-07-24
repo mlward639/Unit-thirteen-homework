@@ -12,7 +12,7 @@ Product.belongsTo(Category, {
 // Category has many Products as a category can have multiple products but a product can only belong to one category.
 
 Category.hasMany(Product, {
-  foreignKey: 
+  foreignKey: 'category_id',
 })
 
 
