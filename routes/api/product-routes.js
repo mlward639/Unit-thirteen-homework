@@ -10,8 +10,15 @@ router.get('/', async (req, res) => {
     const productData = await Product.findAll({
   // be sure to include its associated Category and Tag data
       include: [
-        { model: Category},
-        { model: Tag, through: ProductTag, as: 'tag_belongs_to_many_product'}
+        { 
+          model: Category,
+          attributes: ['category_name']
+        },
+        { 
+          model: Tag,
+          attributes: ['tag_name']
+        }
+        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? *******************
       ]
     });
     res.status(200).json(productData);
@@ -27,8 +34,14 @@ router.get('/:id', async (req, res) => {
     const productData = await Product.findByPk(req.params.id, {
   // be sure to include its associated Category and Tag data
       include: [
-        { model: Category},
-        { model: Tag, through: ProductTag, as: 'tag_belongs_to_many_product'}
+        { 
+          model: Category,
+          attributes: ['category_name']
+        },
+        { 
+          model: Tag,
+          attributes: ['tag_name']
+        }
       ]
     });
     if (!productData){
@@ -41,7 +54,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new product
+// create new product ***** dont get this?? i see how it is making the productTag (although confused on specifics) but dont see it making a Product anywhere
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
@@ -73,6 +86,7 @@ router.post('/', (req, res) => {
     });
 });
 
+//DONT GET??? ***********
 // update product
 router.put('/:id', (req, res) => {
   // update product data
