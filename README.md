@@ -4,7 +4,7 @@
 
 ## Description
 Back end of application for an e-commerce site created using starter code. Allows user to view and manipulate (post, put, and delete) from e-commerce database containing four tables: Category (id, name), Product (id, name, price, stock, category id), Tag (id, name), Product Tag (id, product id, tag id).
-
+  
 ## Table of Contents 
  - [Installation](#installation)
  - [Usage](#usage)
