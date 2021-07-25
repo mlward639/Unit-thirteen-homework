@@ -1,9 +1,13 @@
+// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 
+// import our database connection from config.js
 const sequelize = require('../config/connection.js');
 
+// create Category model
 class Category extends Model {}
 
+// set up fields and rules for Category model
 Category.init(
   {
     // define columns
@@ -27,15 +31,5 @@ Category.init(
   }
 );
 
-
-/* ADD IF NEEDED FOR ASSOCIATIONS: 
-    traveller_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'traveller',
-        key: 'id',
-        unique: false
-      }
-    }, */
 
 module.exports = Category;

@@ -10,7 +10,6 @@ Product.belongsTo(Category, {
 });
 
 // Category has many Products as a category can have multiple products but a product can only belong to one category.
-
 Category.hasMany(Product, {
   foreignKey: 'category_id',
 })
@@ -18,7 +17,7 @@ Category.hasMany(Product, {
 
 /*
 WHAT IS THE DIFFERENCE BETWEEN THESE TWO (AS VS FOREIGN KEY) AND WHEN TO USE WHICH ******************
-NONE ARE WORKING NOW, GO BACK ONCE WORKING AND SEE WHICH OF THE THREE WORK
+NONE ARE WORKING NOW, GO BACK ONCE WORKING AND SEE WHICH OF THE THREE WORK. GO THROUGH WITH TUTOR AND THEN DELETE AND RECOMMIT/PUSH TO GITHUB
 SHOWN IN CLASS:
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
@@ -67,9 +66,6 @@ Tag.belongsToMany(Product, {
   foreignKey: 'tag_id'
 });
 
-//* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
-// **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
 
 module.exports = {
   Product,

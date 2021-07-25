@@ -1,14 +1,15 @@
 const router = require('express').Router();
+// Import models
 const { Product, Category, Tag, ProductTag } = require('../../models');
+
 
 // The `/api/products` endpoint
 
-// get all products
+// GET all products 
 router.get('/', async (req, res) => {
-  // find all products
   try {
     const productData = await Product.findAll({
-  // be sure to include its associated Category and Tag data
+    // Include its associated Category and Tag data
       include: [
         { 
           model: Category,
@@ -18,7 +19,8 @@ router.get('/', async (req, res) => {
           model: Tag,
           attributes: ['tag_name']
         }
-        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? when do you have to say through??? bc here, we are getting the data through productTag table. is it bc through was declared in index model?*******************
+        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? when do you have to say through??? bc here, we are getting the data through productTag table. is it bc through was declared in index model?******************* 
+        //DISCUSS WITH TUTOR THEN DELETE, COMMIT/PUSH TO GITHUB
       ]
     });
     res.status(200).json(productData);
@@ -27,12 +29,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+// GET one product by id
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
   try {
     const productData = await Product.findByPk(req.params.id, {
-  // be sure to include its associated Category and Tag data
+  // Include its associated Category and Tag data
       include: [
         { 
           model: Category,
@@ -54,7 +55,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new product ***** dont get this?? i see how it is making the productTag (although confused on specifics) but dont see it making a Product anywhere
+// CREATE new product ***** dont get this?? i see how it is making the productTag (although confused on specifics) but dont see it making a Product anywhere
+//DISCUSS WITH TUTOR THEN COMMIT/PUSH TO GITHUB
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
@@ -129,8 +131,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// DELETE one product by its `id` value
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
   try {
     const productData = await Product.destroy({
       where: {
