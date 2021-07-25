@@ -84,6 +84,7 @@ Libraries:
 * Express.js API to create back end of web application
 * Sequelize to connect to MySQL database
 * dotenv package to use environmental variables to store sensitive data
+* Insomnia REST client for API testing
 
 ## Contribution Guidelines
 Utilize <a href= "https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md">The Contributor Covenant</a> as reference for appropriate contribution guidelines.
@@ -106,12 +107,26 @@ Source for licensing information: <a href="https://opensource.org/licenses/MIT">
 
 ## Screenshots
 
-Screenshot of :
+Screenshot of GET example:
 
-<img src='' alt = ''>
+<img src='assets\images\screenshot-insomnia-category-get.png' alt = 'Screenshot of GET example'>
+
+Screenshot of POST example:
+
+<img src='assets\images\screenshot-insomnia-category-post.png' alt = 'Screenshot of POST example'>
+
+Screenshot of PUT example:
+
+<img src='assets\images\screenshot-insomnia-category-put.png' alt = 'Screenshot of PUT example'>
+
+Screenshot of DELETE example:
+
+<img src='assets\images\screenshot-insomnia-category-delete.png' alt = 'Screenshot of DELETE example'>
 
 
 ## URLs
 <a href="https://github.com/mlward639/Unit-thirteen-homework">Link to GitHub Repository</a>
 
-<a href="">Link to walkthrough video demonstrating application functionality</a>
+<a href="https://drive.google.com/file/d/1SEs8hclL9pTqwJyGRT-3w7BIMZJocMK8/view">Link to walkthrough video demonstrating application functionality, Part 1</a>
+
+<a href="https://drive.google.com/file/d/1zjHtuhhlkWithYQVZjxEOjdAF2bL78LZ/view">Link to walkthrough video demonstrating application functionality, Part 2</a>

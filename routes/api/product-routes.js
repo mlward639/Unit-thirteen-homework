@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
           model: Tag,
           attributes: ['tag_name']
         }
-        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? *******************
+        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? when do you have to say through??? bc here, we are getting the data through productTag table. is it bc through was declared in index model?*******************
       ]
     });
     res.status(200).json(productData);
