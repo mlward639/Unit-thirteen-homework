@@ -3,7 +3,7 @@
 <img src='https://img.shields.io/badge/License-MIT-yellow.svg'>
 
 ## Description
-Back end of application for an e-commerce site created using starter code. Allows user to view and manipulate (post, put, and delete) from e-commerce database containing four tables: Category (id, name), Product (id, name, price, stock, category id), Tag (id, name), Product Tag (id, product id, tag id).
+Back end of application for an e-commerce site created using starter code. Allows user to view and manipulate (post, put, and delete) information from an e-commerce database.
   
 ## Table of Contents 
  - [Installation](#installation)
@@ -27,6 +27,7 @@ Back end of application for an e-commerce site created using starter code. Allow
 
 ## Usage
 After installation instructions above, open in Insomnia (ensure correct url: http://localhost:PORT). 
+
 Category model options:
 * Show all categories:
     * Set to GET
@@ -83,7 +84,7 @@ Libraries:
 * MySQL2 to connect to MySQL database 
 * Express.js API to create back end of web application
 * Sequelize to connect to MySQL database
-* dotenv package to use environmental variables to store sensitive data
+* Dotenv package to use environmental variables to store sensitive data
 * Insomnia REST client for API testing
 
 ## Contribution Guidelines
