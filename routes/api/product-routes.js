@@ -1,63 +1,59 @@
-const router = require('express').Router();
+const router = require("express").Router();
 // Import models
-const { Product, Category, Tag, ProductTag } = require('../../models');
-
+const { Product, Category, Tag, ProductTag } = require("../../models");
 
 // The `/api/products` endpoint
 
-// GET all products 
-router.get('/', async (req, res) => {
+// GET all products
+router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
-    // Include its associated Category and Tag data
+      // Include its associated Category and Tag data
       include: [
-        { 
+        {
           model: Category,
-          attributes: ['category_name']
+          attributes: ["category_name"],
         },
-        { 
+        {
           model: Tag,
-          attributes: ['tag_name']
-        }
-        //why dont you have to say { model: Tag, through: ProductTag, as: 'tag_id'}  ?? is it because in index.js i changed from through as to foreign key?? when do you have to say through??? bc here, we are getting the data through productTag table. is it bc through was declared in index model?******************* 
-        //DISCUSS WITH TUTOR THEN DELETE, COMMIT/PUSH TO GITHUB
-      ]
+          attributes: ["tag_name"],
+        },
+      ],
     });
     res.status(200).json(productData);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // GET one product by id
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
-  // Include its associated Category and Tag data
+      // Include its associated Category and Tag data
       include: [
-        { 
+        {
           model: Category,
-          attributes: ['category_name']
+          attributes: ["category_name"],
         },
-        { 
+        {
           model: Tag,
-          attributes: ['tag_name']
-        }
-      ]
+          attributes: ["tag_name"],
+        },
+      ],
     });
-    if (!productData){
-      res.status(404).json({message: 'No product with this ID found'});
+    if (!productData) {
+      res.status(404).json({ message: "No product with this ID found" });
       return;
     }
     res.status(200).json(productData);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// CREATE new product ***** dont get this?? i see how it is making the productTag (although confused on specifics) but dont see it making a Product anywhere
-//DISCUSS WITH TUTOR THEN COMMIT/PUSH TO GITHUB
-router.post('/', (req, res) => {
+// CREATE new product
+router.post("/", (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -88,9 +84,8 @@ router.post('/', (req, res) => {
     });
 });
 
-//DONT GET??? ***********
 // update product
-router.put('/:id', (req, res) => {
+router.put("/:id", (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -132,19 +127,19 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE one product by its `id` value
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const productData = await Product.destroy({
       where: {
         id: req.params.id,
-      }
+      },
     });
-    if (!productData){
-      res.status(404).json({message: 'No product with that ID found'})
+    if (!productData) {
+      res.status(404).json({ message: "No product with that ID found" });
       return;
     }
     res.status(200).json(productData);
-  } catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
 });
